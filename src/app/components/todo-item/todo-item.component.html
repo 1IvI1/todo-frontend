@@ -1,0 +1,41 @@
+<div class="table-main">
+  <div class="table-body">
+    <div class="table-body-row" *ngFor="let item of items; index as i">
+      <div
+        *ngIf="!item.deleted"
+        class="table-body-d"
+        [ngClass]="{
+          'table-body-d-selected':
+            todoItemSelection.todoItemSelected && todoItemSelection.index === i
+        }"
+        (click)="handleTodoItemClick(item.id)"
+        (touchstart)="handleTouchStart($event)"
+        (touchend)="handleTouchEnd($event, i)"
+      >
+        {{ item.title }}
+      </div>
+      <div
+        class="table-body-icons"
+        *ngIf="
+          todoItemSelection.todoItemSelected &&
+          todoItemSelection.index === i &&
+          !item.deleted
+        "
+      >
+        <fa-icon [icon]="faPen" (click)="openEditComponent(i)"></fa-icon>
+        <fa-icon [icon]="faTimesCircle" (click)="deleteToDo(i)"></fa-icon>
+      </div>
+    </div>
+    <app-detailed-data-component
+      [todoDetails]="selectedToDoItem"
+      (closeDetailedData)="closePopUp($event)"
+      *ngIf="openDetailedPopUp"
+    ></app-detailed-data-component>
+    <app-edit-component
+      (closeDetailedData)="closePopUp($event)"
+      *ngIf="openEditPopUp"
+      [todoDetails]="selectedToDoItem"
+      (updateItems)="handleToDoEdit($event)"
+    ></app-edit-component>
+  </div>
+</div>

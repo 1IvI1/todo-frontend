@@ -1,0 +1,78 @@
+.table {
+
+  &-main {
+    height: 96%;
+    width: 100%;
+    padding: 10px 0 10px 0;
+  }
+
+  &-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    z-index: 1;
+
+    &-row {
+      width: 80%;
+      height: 50px;
+      margin-bottom: 5px;
+      position: relative;
+      display: flex;
+    }
+
+    &-icons {
+      position: absolute;
+      right: 0;
+      width: 57.6px;
+      height: 100%;
+      animation: moveIcons normal 1s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+
+    &-d {
+      background-color: #f0f0f0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: .5s;
+      z-index: 2;
+
+       &-selected {
+         transform: translate(-35%);
+       }
+    }
+
+    &-d:active {
+      background-color: #c4c3c3;
+    }
+  }
+}
+
+@keyframes moveIcons {
+  from {
+    right: 70%;
+  } to {
+    right: 0;
+  }
+}
+
+app-detailed-data-component,
+app-edit-component {
+  background-color: rgba(255, 255, 255, 0.274);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 10;
+}

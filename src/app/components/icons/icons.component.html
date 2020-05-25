@@ -1,0 +1,4 @@
+<div [ngClass]="'icon-main-container'">
+  <fa-icon *ngIf="status !== 'pending'" [icon]="icon"></fa-icon>
+  <div [ngClass]="'spinner'" *ngIf="status === 'pending'"></div>
+</div>

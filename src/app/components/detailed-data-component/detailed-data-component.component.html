@@ -1,0 +1,11 @@
+<div class="detailed-main">
+  <div class="detailed-content">
+    <h2 class="title">{{ todoDetails.title }}</h2>
+    <textarea class="description" disabled>{{
+      todoDetails.description
+    }}</textarea>
+  </div>
+  <div class="detailed-close" (click)="closePopUp()">
+    <span>CLOSE</span>
+  </div>
+</div>

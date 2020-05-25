@@ -1,0 +1,50 @@
+.todo {
+  &-main {
+    &-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+
+      & header {
+        width: 100vw;
+        height: 7%;
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+todo-items {
+  width: 100%;
+  height: 73%;
+}
+
+.history {
+  &-min {
+    background-color: green;
+    width: 100%;
+    height: 10%;
+  }
+}
+
+.add-task-zone {
+  background-color: grey;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+app-create-component {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 12;
+}

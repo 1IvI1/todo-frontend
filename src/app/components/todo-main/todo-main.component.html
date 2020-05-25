@@ -1,0 +1,15 @@
+<div [ngClass]="'todo-main-area'">
+  <header>
+    <h1>TODO LIST</h1>
+  </header>
+  <div class="history-min">
+    history
+  </div>
+  <todo-items (updateItems)="updateItems($event)" [items]="todoItems"></todo-items>
+  <div class="add-task-zone">
+    <div *ngIf="!showCreatePopUp" (click)="openCreatePopUp()">
+      <span>+</span>
+    </div>
+    <app-create-component (updateItems)="updateItems($event)" (closeCreatePopUp)="closeCreatePopUp($event)" *ngIf="showCreatePopUp"></app-create-component>
+  </div>
+</div>
