@@ -17,7 +17,7 @@
       <span>DONE</span>
     </div>
   </div>
-  <todo-items (updateItems)="updateItems($event)" [items]="todoItems"></todo-items>
+  <todo-items (updateItems)="updateItems($event)" [items]="todoItems.reverse()"></todo-items>
   <div class="add-task-zone">
     <div class="create-button" *ngIf="!showCreatePopUp" (click)="openCreatePopUp()">
       <span>+</span>

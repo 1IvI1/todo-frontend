@@ -5,14 +5,26 @@
       todoDetails.description
     }}</textarea>
     <div class="buttons">
-      <div (click)="updateStatus('todo')" class="button-set-todo button">
+      <div
+        [ngClass]="{'selected-button': todoDetails.status === 'todo'}"
+        (click)="updateStatus('todo')"
+        class="button-set-todo button"
+      >
         <span>TODO</span>
       </div>
-      <div (click)="updateStatus('done')" class="button-set-done button">
+      <div
+        [ngClass]="{'selected-button': todoDetails.status === 'done'}"
+        (click)="updateStatus('done')"
+        class="button-set-done button"
+      >
         <span>DONE</span>
       </div>
     </div>
-    <div (click)="updateStatus('doing')" class="button-set-giveup button">
+    <div
+      [ngClass]="{'selected-button': todoDetails.status === 'doing'}"
+      (click)="updateStatus('doing')"
+      class="button-set-giveup button"
+    >
       <span>DOING</span>
     </div>
   </div>

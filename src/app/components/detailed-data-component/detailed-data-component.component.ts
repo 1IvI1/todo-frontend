@@ -23,7 +23,7 @@ export class DetailedDataComponentComponent implements OnInit {
   updateStatus(status: string) {
     let toDo = this.todoDetails;
     toDo.status = status;
-    this.http.put(`${IP + PORT}/todo/update/${this.todoDetails.id}/status/`,toDo)
+    this.http.put(`${IP + PORT}/todo/update/${this.todoDetails.id}/status`,toDo)
       .subscribe(response => {
         this.updateItems.emit(response)
         this.closePopUp()
