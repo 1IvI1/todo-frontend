@@ -22,8 +22,8 @@
           !item.deleted
         "
       >
-        <fa-icon [icon]="faPen" (click)="openEditComponent(i)"></fa-icon>
-        <fa-icon [icon]="faTimesCircle" (click)="deleteToDo(i)"></fa-icon>
+        <fa-icon [icon]="faPen" (click)="openEditComponent(item.id)"></fa-icon>
+        <fa-icon [icon]="faTimesCircle" (click)="deleteToDo(item.id)"></fa-icon>
       </div>
     </div>
     <app-detailed-data-component

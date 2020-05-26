@@ -43,8 +43,8 @@ export class ToDoItemComponent {
     }
   }
 
-  deleteToDo(index) {
-    let itemToDelete: ToDoItem = this.items[index]
+  deleteToDo(id) {
+    let itemToDelete: ToDoItem = this.items.filter(x => x.id = id)[0];
     this.http.delete(`${IP + PORT}/todo/delete/${itemToDelete.id}`)
       .subscribe(response => {
         this.updateItems.emit(response);
@@ -65,10 +65,10 @@ export class ToDoItemComponent {
     this.selectedToDoItem = this.items.filter(x => x.id === itemId)[0]
   }
 
-  openEditComponent(index) {
-    console.log(index)
+  openEditComponent(itemId) {
+    console.log(itemId)
     this.openEditPopUp = true;
-    this.selectedToDoItem = this.items[index]
+    this.selectedToDoItem = this.items.filter(x => x.id === itemId)[0]
   }
 
   closeDetailedDataPopUp(): void {
