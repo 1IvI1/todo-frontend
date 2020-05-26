@@ -19,3 +19,9 @@ export interface PopUpClosing {
     status: boolean;
     popUp: string;
 }
+
+export interface ToDoDoingDone {
+    todo: number;
+    doing: number;
+    done: number;
+}

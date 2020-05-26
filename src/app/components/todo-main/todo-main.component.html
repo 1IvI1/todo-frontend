@@ -1,13 +1,25 @@
 <div [ngClass]="'todo-main-area'">
   <header>
-    <h1>TODO LIST</h1>
+    <img [src]="imagePath" alt="TODO">
+    <h2>TODO</h2>
   </header>
   <div class="history-min">
-    history
+    <div class="todo history-min-item">
+      <span>{{ todoDoingDone.todo }}</span>
+      <span>TODO</span>
+    </div>
+    <div class="doing history-min-item">
+      <span>{{ todoDoingDone.doing }}</span>
+      <span>DOING</span>
+    </div>
+    <div class="done history-min-item">
+      <span>{{ todoDoingDone.done }}</span>
+      <span>DONE</span>
+    </div>
   </div>
   <todo-items (updateItems)="updateItems($event)" [items]="todoItems"></todo-items>
   <div class="add-task-zone">
-    <div *ngIf="!showCreatePopUp" (click)="openCreatePopUp()">
+    <div class="create-button" *ngIf="!showCreatePopUp" (click)="openCreatePopUp()">
       <span>+</span>
     </div>
     <app-create-component (updateItems)="updateItems($event)" (closeCreatePopUp)="closeCreatePopUp($event)" *ngIf="showCreatePopUp"></app-create-component>

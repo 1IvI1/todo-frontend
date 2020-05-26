@@ -4,6 +4,17 @@
     <textarea class="description" disabled>{{
       todoDetails.description
     }}</textarea>
+    <div class="buttons">
+      <div (click)="updateStatus('todo')" class="button-set-todo button">
+        <span>TODO</span>
+      </div>
+      <div (click)="updateStatus('done')" class="button-set-done button">
+        <span>DONE</span>
+      </div>
+    </div>
+    <div (click)="updateStatus('doing')" class="button-set-giveup button">
+      <span>DOING</span>
+    </div>
   </div>
   <div class="detailed-close" (click)="closePopUp()">
     <span>CLOSE</span>

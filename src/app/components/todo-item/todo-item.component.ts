@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IP, PORT } from 'src/app/exports/constants';
 import { IconDefinition, faPen, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { ToDoItem, ToDoItemSelect, ToDoItemSwipe } from 'src/app/interfaces/todo-interface';
 
@@ -30,6 +31,10 @@ export class ToDoItemComponent {
 
   }
 
+  handleStatusChange(e) {
+    this.updateItems.emit(e);
+  }
+
   closePopUp(e) {
     if(e.popUp === "DETAILS") {
       this.openDetailedPopUp = e.status;
@@ -40,7 +45,7 @@ export class ToDoItemComponent {
 
   deleteToDo(index) {
     let itemToDelete: ToDoItem = this.items[index]
-    this.http.delete(`http://127.0.0.1:8080/todo/delete/${itemToDelete.id}`)
+    this.http.delete(`${IP + PORT}/todo/delete/${itemToDelete.id}`)
       .subscribe(response => {
         this.updateItems.emit(response);
         this.todoItemSelection.todoItemSelected = false;

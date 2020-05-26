@@ -51,6 +51,11 @@
     text-align: center;
     margin-top: 0.83em;
     margin-bottom: 0.83em;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-right: 0;
+    margin-left: 0;
+    height: 1.83rem;
 }
 
 .description {
@@ -58,4 +63,5 @@
     height: 50%;
     resize: none;
     overflow-y: scroll;
+    border-radius: 5px;
 }

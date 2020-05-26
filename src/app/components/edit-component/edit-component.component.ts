@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IP, PORT } from 'src/app/exports/constants';
 import { PopUpClosing, ToDoItem } from 'src/app/interfaces/todo-interface';
 
 import { HttpClient } from '@angular/common/http';
@@ -22,7 +23,7 @@ export class EditComponentComponent implements OnInit {
 
   updateData(): void {
     this.http.put(
-      `http://127.0.0.1:8080/todo/update/${this.todoDetails.id}`,
+      `${IP + PORT}/todo/update/${this.todoDetails.id}`,
       this.objectToSend
     ).subscribe(response => {
       this.updateItems.emit(response);

@@ -30,6 +30,7 @@
       [todoDetails]="selectedToDoItem"
       (closeDetailedData)="closePopUp($event)"
       *ngIf="openDetailedPopUp"
+      (updateItems)="handleStatusChange($event)"
     ></app-detailed-data-component>
     <app-edit-component
       (closeDetailedData)="closePopUp($event)"

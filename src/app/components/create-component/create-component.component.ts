@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { IP, PORT } from 'src/app/exports/constants';
 
 import { HttpClient } from '@angular/common/http';
 import { ToDoItem } from 'src/app/interfaces/todo-interface';
@@ -25,7 +26,7 @@ export class CreateComponentComponent implements OnInit {
 
   updateData(): void {
     this.http.post(
-      `http://127.0.0.1:8080/todo/create`,
+      `${IP + PORT}/todo/create`,
       this.objectToSend
     ).subscribe(response => {
       this.updateItems.emit(response);

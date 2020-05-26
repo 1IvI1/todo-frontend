@@ -12,7 +12,7 @@ export class IconsComponent implements OnInit {
   icon: IconDefinition = faCoffee;
 
   iconTypes = {
-    pending: faSpinner,
+    todo: faSpinner,
   }
 
   ngOnInit(): void {

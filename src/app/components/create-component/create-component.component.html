@@ -2,14 +2,13 @@
     <div class="detailed-content">
       <input class="title" [(ngModel)]="objectToSend.title" />
       <textarea class="description" [(ngModel)]="objectToSend.description"></textarea>
-      {{ objectToSend | json }}
     </div>
     <div class="detailed-buttons">
       <div class="detailed-close" (click)="doClosePopUp()">
         <span>CLOSE</span>
       </div>
       <div class="detailed-update" (click)="updateData()">
-        <span>UPDATE</span>
+        <span>CREATE</span>
       </div>
     </div>
   </div>
