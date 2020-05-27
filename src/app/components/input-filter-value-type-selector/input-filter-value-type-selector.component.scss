@@ -1,0 +1,67 @@
+.selector {
+  width: 80px;
+  height: 2rem;
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #f0f0f0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.type {
+  &-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  &-title {
+    top: 1%;
+    left: 67%;
+    animation: moveTitle ease 0.3s;
+  }
+
+  &-description {
+    top: 8%;
+    left: 67%;
+    animation: moveDescr ease 0.4s;
+  }
+
+  &-all {
+    top: 15%;
+    left: 67%;
+    animation: moveAll ease 0.5s;
+  }
+}
+
+@keyframes moveTitle {
+  from {
+    top: 0;
+  }
+  to {
+    top: 1%;
+  }
+}
+@keyframes moveDescr {
+  from {
+    top: 0;
+  }
+  to {
+    top: 8%;
+  }
+}
+@keyframes moveAll {
+  from {
+    top: 0;
+  }
+  to {
+    top: 15%;
+  }
+}

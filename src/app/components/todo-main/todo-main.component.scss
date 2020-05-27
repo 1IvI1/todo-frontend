@@ -12,8 +12,16 @@
         height: 7%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         margin: 10px 0 10px 0;
+      }
+
+      & header div {
+        width: 55%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
       }
 
       & header img {
@@ -47,6 +55,11 @@ todo-items {
       justify-content: space-evenly;
       align-items: center;
       flex-direction: column;
+      transition: .3s;
+
+      &-selected {
+        background-color: rgba(0,0,0,.1);
+      }
     }
   }
 }

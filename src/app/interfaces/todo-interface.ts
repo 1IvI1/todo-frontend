@@ -25,3 +25,8 @@ export interface ToDoDoingDone {
     doing: number;
     done: number;
 }
+
+export interface FilterInputType {
+    value: string;
+    open: boolean;
+  }

@@ -1,27 +1,61 @@
 <div [ngClass]="'todo-main-area'">
   <header>
-    <img [src]="imagePath" alt="TODO">
-    <h2>TODO</h2>
+    <div>
+      <img [src]="imagePath" alt="TODO" />
+      <h2>TODO</h2>
+    </div>
+    <fa-icon (click)="setFullScreen()" [icon]="icon"></fa-icon>
   </header>
   <div class="history-min">
-    <div class="todo history-min-item">
+    <div
+      [ngClass]="{
+        'history-min-item-selected': filterTodosByStatus === 'todo'
+      }"
+      (click)="setFilterByStatus('todo')"
+      class="todo history-min-item"
+    >
       <span>{{ todoDoingDone.todo }}</span>
       <span>TODO</span>
     </div>
-    <div class="doing history-min-item">
+    <div
+      [ngClass]="{
+        'history-min-item-selected': filterTodosByStatus === 'doing'
+      }"
+      (click)="setFilterByStatus('doing')"
+      class="doing history-min-item"
+    >
       <span>{{ todoDoingDone.doing }}</span>
       <span>DOING</span>
     </div>
-    <div class="done history-min-item">
+    <div
+      [ngClass]="{
+        'history-min-item-selected': filterTodosByStatus === 'done'
+      }"
+      (click)="setFilterByStatus('done')"
+      class="done history-min-item"
+    >
       <span>{{ todoDoingDone.done }}</span>
       <span>DONE</span>
     </div>
   </div>
-  <todo-items *ngIf="todoItems !== undefined" (updateItems)="updateItems($event)" [items]="todoItems.reverse()"></todo-items>
+  <todo-items
+    *ngIf="todoItems !== undefined"
+    (updateItems)="updateItems($event)"
+    [filterType]="filterTodosByStatus"
+    [items]="todoItems.reverse()"
+  ></todo-items>
   <div class="add-task-zone">
-    <div class="create-button" *ngIf="!showCreatePopUp" (click)="openCreatePopUp()">
+    <div
+      class="create-button"
+      *ngIf="!showCreatePopUp"
+      (click)="openCreatePopUp()"
+    >
       <span>+</span>
     </div>
-    <app-create-component (updateItems)="updateItems($event)" (closeCreatePopUp)="closeCreatePopUp($event)" *ngIf="showCreatePopUp"></app-create-component>
+    <app-create-component
+      (updateItems)="updateItems($event)"
+      (closeCreatePopUp)="closeCreatePopUp($event)"
+      *ngIf="showCreatePopUp"
+    ></app-create-component>
   </div>
 </div>

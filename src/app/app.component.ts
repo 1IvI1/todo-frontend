@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { ToDoMainComponent } from "./components/todo-main/todo-main.component";
 
 @Component({
@@ -6,6 +7,11 @@ import { ToDoMainComponent } from "./components/todo-main/todo-main.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'todo';
+
+  ngOnInit(): void {
+  }
+
+  
 }

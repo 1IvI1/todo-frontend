@@ -3,12 +3,45 @@
   &-main {
     height: 96%;
     width: 100%;
-    padding: 10px 0 10px 0;
+    // padding: 10px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  &-filter {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-right: 6%;
+
+    &-input {
+      width: 79%;
+      height: 100%;
+      border-radius: 5px;
+      border: 1px solid #000;
+      text-align: center;
+      outline: none;
+
+      &-icon {
+        margin-left: -10%;
+        height: 100%;
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 
   &-body {
+    max-height: 389.9px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -72,7 +105,19 @@ app-edit-component {
   background-color: rgba(255, 255, 255, 0.274);
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   z-index: 10;
+}
+
+app-input-filter-value-type-selector {
+  position: absolute;
+  top: 25%;
+  z-index: 25;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: rgba(0,0,0,.5);
 }

@@ -1,6 +1,29 @@
 <div class="table-main">
+  <div class="table-filter">
+    <input
+      (input)="inputFilterValue = $event.target.value"
+      placeholder="{{ inputFilterType }}"
+      class="table-filter-input"
+      type="text"
+    />
+    <fa-icon (click)="setOpenInputFilterValueTypeSelector()" class="table-filter-input-icon" [icon]="icon"></fa-icon>
+  </div>
+  <app-input-filter-value-type-selector
+    (changeInputFilterValueType)="handleInputFilterValueType($event)"
+    *ngIf="openInputFilterValueTypeSelector"
+  ></app-input-filter-value-type-selector>
   <div class="table-body">
-    <div class="table-body-row" *ngFor="let item of items; index as i">
+    <div
+      class="table-body-row"
+      *ngFor="
+        let item of items
+          | filterTodosByStatus
+            : filterType
+            : inputFilterValue
+            : inputFilterValueType;
+        index as i
+      "
+    >
       <div
         *ngIf="!item.deleted"
         class="table-body-d"
