@@ -78,6 +78,7 @@ export class ToDoItemComponent {
         this.updateItems.emit(response);
         this.todoItemSelection.todoItemSelected = false;
         this.todoItemSelection.index = -1;
+        this.inputFilterValue = "";
       });
   }
 
@@ -85,6 +86,7 @@ export class ToDoItemComponent {
     this.updateItems.emit(toDo);
     this.todoItemSelection.todoItemSelected = false;
     this.todoItemSelection.index = -1;
+    this.inputFilterValue = "";
   }
 
   handleTodoItemClick(itemId) {

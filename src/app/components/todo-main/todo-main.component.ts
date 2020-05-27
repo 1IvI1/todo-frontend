@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { IP, PORT } from 'src/app/exports/constants';
 import {
   IconDefinition,
@@ -8,6 +8,8 @@ import {
 import { ToDoDoingDone, ToDoItem } from '../../interfaces/todo-interface';
 
 import { HttpClient } from '@angular/common/http';
+
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'todo-main',
@@ -28,14 +30,16 @@ export class ToDoMainComponent implements OnInit {
   };
   filterTodosByStatus: string = 'none';
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient, @Inject(DOCUMENT) private doc: Document) {}
+ /**don't use document -> use injectDocument */
   setFullScreen(): void {
     if (document.fullscreen) {
-      document.exitFullscreen();
+      this.doc.exitFullscreen();
+      // document.exitFullscreen();
       this.icon = faExpand;
     } else {
-      document.documentElement.requestFullscreen();
+      // document.documentElement.requestFullscreen();
+      this.doc.documentElement.requestFullscreen()
       this.icon = faCompress;
     }
   }
